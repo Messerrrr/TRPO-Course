@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaCourse.Views.EventEditView">
+	<Grid Margin="10">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30"/>
+			<RowDefinition Height="30"></RowDefinition>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<StackPanel Grid.Row="0"
+					VerticalAlignment="Top"
+					HorizontalAlignment="Left">
+			<Button Width="35"
+				Command="{Binding BackCommand, Mode=OneTime}">
+				<Image Source="/Assets/back.png"></Image>
+			</Button>
+		</StackPanel>
+		<TextBlock Grid.Row="1" Foreground="White" HorizontalAlignment="Center" Text="Напомнить о событии"></TextBlock>
+		<StackPanel Grid.Row="2" HorizontalAlignment="Center">
+			<StackPanel Orientation="Vertical">
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Дата" Foreground="White" Margin="11,10,20,10"></TextBlock>
+				<CalendarDatePicker MinWidth="150" Foreground="White" Margin="15,0,0,0" SelectedDate="{Binding CurrentEvent.Date}"></CalendarDatePicker>
+			</StackPanel>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+				<TextBlock Text="Событие" Foreground="White" Margin="0,10,20,10"></TextBlock>
+				<TextBox MinHeight="200" MinWidth="200" Text="{Binding CurrentEvent.Name}"></TextBox>
+			</StackPanel>
+		</StackPanel>
+		<StackPanel HorizontalAlignment="Center" Grid.Row="4" Margin="40">
+			<Button Content="Сохранить" Foreground="White" Background="BlueViolet" Command="{Binding SaveCommand}"></Button>
+		</StackPanel>
+	</Grid>
+</UserControl>

@@ -1,0 +1,82 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaCourse.Views.AdressEditView">
+	<Grid Margin="10">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<StackPanel Grid.Row="0"
+					VerticalAlignment="Top"
+					HorizontalAlignment="Left">
+			<Button Width="35"
+				Command="{Binding BackCommand, Mode=OneTime}">
+				<Image Source="/Assets/back.png"></Image>
+			</Button>
+		</StackPanel>
+		<StackPanel Grid.Row="1"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center">
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Foreground="White" Text="Имя"/>
+				<TextBox Text="{Binding CurrentPeople.Name}"
+						 Margin="176,0,0,0"
+						 Width="150"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal"
+						Margin="0,10,0,0">
+				<TextBlock Foreground="White" Text="Фамилия"/>
+				<TextBox Text="{Binding CurrentPeople.Surname}"
+						 Margin="143,0,0,0"
+						 Width="150"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal"
+						Margin="0,10,0,0">
+				<TextBlock Foreground="White" Text="Отчество"/>
+				<TextBox Text="{Binding CurrentPeople.Patronymic}"
+						 Margin="140,0,0,0"
+						 Width="150"/>
+			</StackPanel>
+	
+			<StackPanel Orientation="Horizontal"
+						Margin="0,10,0,0">
+				<TextBlock Foreground="White" Text="Email"/>
+				<TextBox Text="{Binding CurrentPeople.Email}"
+						 Margin="170,0,0,0"
+						 Width="150"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal"
+						Margin="0,10,0,0">
+				<TextBlock Foreground="White" Text="Мобильный телефон"/>
+				<TextBox Text="{Binding CurrentPeople.Phone}"
+						 Margin="63,0,0,0"
+						 Width="150"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal"
+						Margin="0,10,0,0">
+				<TextBlock Foreground="White" Text="Место работы"/>
+				<TextBox Text="{Binding CurrentPeople.Job}"
+						 Margin="107,0,0,0"
+						 Width="150"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal"
+						Margin="0,10,0,0">
+				<TextBlock Foreground="White" Text="Должность"/>
+				<TextBox Text="{Binding CurrentPeople.Function}"
+						 Margin="127,0,0,0"
+						 Width="150"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal"
+						Margin="0,30"
+						HorizontalAlignment="Right">
+				<Button Foreground="White" Background="BlueViolet" Content="Сохранить"
+						Command="{Binding SaveCommand, Mode=OneTime}"/>
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</UserControl>

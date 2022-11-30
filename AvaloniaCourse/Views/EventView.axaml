@@ -1,0 +1,50 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaCourse.Views.EventView">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="20"></RowDefinition>
+			<RowDefinition Height="20"></RowDefinition>
+			<RowDefinition Height="100"></RowDefinition>
+			<RowDefinition></RowDefinition>
+			<RowDefinition Height="60"></RowDefinition>
+		</Grid.RowDefinitions>
+		<StackPanel Grid.Row="0"
+					VerticalAlignment="Top"
+					HorizontalAlignment="Left">
+			<Button Width="35"
+				Command="{Binding BackCommand, Mode=OneTime}">
+				<Image Source="/Assets/back.png"></Image>
+			</Button>
+		</StackPanel>
+		<TextBlock Text="События" Grid.Row="1" HorizontalAlignment="Center" Foreground="White"></TextBlock>
+		<StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+			<TextBlock Foreground="White" Text="с" Margin="0,40,10,0"></TextBlock>
+			<CalendarDatePicker SelectedDate="{Binding left}" Foreground="White"></CalendarDatePicker>
+			<TextBlock Foreground="White" Text="по" Margin="20,40,10,0"></TextBlock>
+			<CalendarDatePicker SelectedDate="{Binding right}" Foreground="White"></CalendarDatePicker>
+			<Button Margin="20" Foreground="White" Background="BlueViolet" Content="Просмотр" Command="{Binding TimeSortCommand}"></Button>
+		</StackPanel>
+		<Grid Grid.Row="3">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="40"></ColumnDefinition>
+				<ColumnDefinition></ColumnDefinition>
+				<ColumnDefinition Width="40"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+			<DataGrid x:Name="Events" Grid.Column="1" Items="{Binding Currentlist}" Background="BlueViolet" Foreground="White">
+				<DataGrid.Columns>
+					<DataGridTextColumn Foreground="White" Header="Дата" MinWidth="200" Binding="{Binding Path=Date}"></DataGridTextColumn>
+					<DataGridTextColumn Foreground="White" Header="План" MinWidth="800" Binding="{Binding Path=Name}"></DataGridTextColumn>
+				</DataGrid.Columns>
+			</DataGrid>
+		</Grid>
+		<StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
+			<Button Content="Добавить" Command="{Binding AddEvent}" Background="BlueViolet" Foreground="White"></Button>
+			<Button Content="Удалить" Command="{Binding RemoveEvent}" CommandParameter="{Binding ElementName=Events, Path=SelectedItem}" Background="BlueViolet" Foreground="White"></Button>
+			<Button Content="Редактировать" Command="{Binding EditEvent}" CommandParameter="{Binding ElementName=Events, Path=SelectedItem}" Background="BlueViolet" Foreground="White"></Button>
+		</StackPanel>
+	</Grid>
+</UserControl>

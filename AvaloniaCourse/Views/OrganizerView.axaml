@@ -1,0 +1,45 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaCourse.Views.OrganizerView">
+	<Grid>
+		<Grid.RowDefinitions>
+			
+			<RowDefinition Height="3*"></RowDefinition>
+			<RowDefinition Height="2*"></RowDefinition>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition></ColumnDefinition>
+			<ColumnDefinition></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		
+		<StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0">
+			<Button FontSize="20" Background="BlueViolet" Foreground="White" Content="Адресная книга" Margin="40" Command="{Binding AdressCommand}"></Button>
+			<Button FontSize="20" Foreground="White" Background="BlueViolet" HorizontalContentAlignment="Center" Command="{Binding ToEvent}" Content="События" Width="170" Margin="40,0,0,40"></Button>
+			<Button FontSize="20" Foreground="White" Background="BlueViolet" HorizontalContentAlignment="Center" Content="К учёту" Width="170" Margin="40,0,0,40" Command="{Binding ToStart} "></Button>
+		</StackPanel>
+		<StackPanel Grid.Column="1" Grid.Row="0" Margin="10">
+			<Calendar Background="BlueViolet" Foreground="White" SelectionMode="SingleDate"></Calendar>
+		</StackPanel>
+		<Grid Grid.ColumnSpan="2" Grid.Row="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="60"></ColumnDefinition>
+				<ColumnDefinition></ColumnDefinition>
+				<ColumnDefinition Width="60"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition></RowDefinition>
+				<RowDefinition Height="10"></RowDefinition>
+			</Grid.RowDefinitions>
+		<DataGrid Grid.Column="1" Items="{Binding CurrentEvents}" Background="BlueViolet">
+			<DataGrid.Columns>
+				<DataGridTextColumn Foreground="White" Header="Дата" MinWidth="200" Binding="{Binding Path=Date}"></DataGridTextColumn>
+				<DataGridTextColumn Foreground="White" Header="План" MinWidth="900" Binding="{Binding Path=Name}"></DataGridTextColumn>
+			</DataGrid.Columns>
+		</DataGrid>
+		</Grid>
+
+	</Grid>
+</UserControl>

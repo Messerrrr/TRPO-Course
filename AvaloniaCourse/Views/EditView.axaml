@@ -1,0 +1,77 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaCourse.Views.EditView">
+	<Grid Margin="10">
+	<Grid.RowDefinitions>
+		<RowDefinition Height="*"/>
+		<RowDefinition Height="Auto"/>
+		<RowDefinition Height="*"/>
+	</Grid.RowDefinitions>
+	<Grid.ColumnDefinitions>
+
+	</Grid.ColumnDefinitions>
+
+	<StackPanel Grid.Row="0"
+				VerticalAlignment="Top"
+				HorizontalAlignment="Left">
+		<Button Width="35"
+			Command="{Binding BackCommand, Mode=OneTime}">
+			<Image Source="/Assets/back.png"></Image>
+		</Button>
+	</StackPanel>
+	<StackPanel Grid.Row="1"
+				VerticalAlignment="Center"
+				HorizontalAlignment="Center">
+		<StackPanel Orientation="Horizontal">
+			<TextBlock Foreground="White" Text="Название произведения"/>
+			<TextBox Text="{Binding CurrentBook.Namebook}"
+					 Margin="10,0,0,0"
+					 Width="150"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal"
+					Margin="0,10,0,0">
+			<TextBlock Foreground="White" Text="Фамилия автора"/>
+			<TextBox Text="{Binding CurrentBook.Surname}"
+					 Margin="63,0,0,0"
+					 Width="150"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal"
+					Margin="0,10,0,0">
+			<TextBlock Foreground="White" Text="Номер магазина"/>
+			<NumericUpDown Value="{Binding CurrentBook.ShopNum}"
+					 Margin="63,0,0,0"
+					  Width="150"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal"
+					Margin="0,10,0,0">
+			<TextBlock Foreground="White" Text="Цена"/>
+			<NumericUpDown Value="{Binding CurrentBook.Cost}"
+					 Margin="142,0,0,0"
+					  Width="150"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal"
+					Margin="0,10,0,0">
+			<TextBlock Foreground="White" Text="Продано книг"/>
+			<NumericUpDown Value="{Binding CurrentBook.Sold}"
+					 Margin="82,0,0,0"
+					  Width="150"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal"
+					Margin="0,10,0,0">
+			<TextBlock Foreground="White" Text="Остаток"/>
+			<NumericUpDown Value="{Binding CurrentBook.Remain}"
+					 Margin="121,0,0,0"
+					  Width="150"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal"
+					Margin="0,50"
+					HorizontalAlignment="Right">
+			<Button Foreground="White" Content="Сохранить"					
+					Command="{Binding SaveCommand, Mode=OneTime}"/>
+		</StackPanel>
+	</StackPanel>
+	</Grid>
+</UserControl>
